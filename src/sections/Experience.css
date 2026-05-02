@@ -1,0 +1,114 @@
+.experience {
+  padding: 120px clamp(24px, 8vw, 120px);
+  position: relative;
+  z-index: 1;
+}
+
+.exp-header { margin-bottom: 60px; }
+
+.exp-list { display: flex; flex-direction: column; }
+
+.exp-item {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 48px;
+  padding: 40px 0;
+  border-top: 1px solid var(--border);
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.5s, transform 0.5s;
+  position: relative;
+}
+.exp-item:last-child { border-bottom: 1px solid var(--border); }
+.reveal.visible .exp-item { opacity: 1; transform: none; }
+
+.exp-item.is-current {
+  padding-left: 20px;
+}
+.exp-item.is-current::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--blue), transparent);
+  border-radius: 2px;
+}
+
+.exp-period {
+  font-size: 12px;
+  color: var(--text-muted);
+  letter-spacing: 0.03em;
+  padding-top: 5px;
+  line-height: 1.5;
+}
+
+.exp-title-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 6px;
+}
+
+.exp-company {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(17px, 2.5vw, 21px);
+  font-weight: 700;
+  color: #fff;
+}
+
+.exp-badge {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 20px;
+  letter-spacing: 0.05em;
+}
+.exp-badge.current {
+  background: rgba(107, 157, 209, 0.12);
+  color: var(--blue);
+  border: 1px solid rgba(107, 157, 209, 0.25);
+}
+.exp-badge.award {
+  background: rgba(249, 186, 21, 0.1);
+  color: #f9ba15;
+  border: 1px solid rgba(249, 186, 21, 0.25);
+}
+
+.exp-dept {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+  letter-spacing: 0.03em;
+}
+
+.exp-tasks {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.exp-tasks li {
+  font-size: 14px;
+  color: var(--text-muted);
+  padding-left: 14px;
+  position: relative;
+  line-height: 1.65;
+}
+.exp-tasks li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 5px;
+  height: 1px;
+  background: var(--blue);
+  opacity: 0.6;
+}
+
+@media (max-width: 760px) {
+  .exp-item { grid-template-columns: 1fr; gap: 10px; }
+  .exp-period { padding-top: 0; }
+}

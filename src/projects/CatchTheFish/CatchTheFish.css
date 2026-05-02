@@ -1,0 +1,13 @@
+@import url('../../projects/PureTicket/PureTicket.css');
+
+.catch-the-fish { --project-color: #8b6cf5; }
+
+.catch-the-fish code {
+  font-family: 'Courier New', monospace;
+  font-size: 13px;
+  background: rgba(139, 108, 245, 0.1);
+  border: 1px solid rgba(139, 108, 245, 0.2);
+  padding: 1px 6px;
+  border-radius: 3px;
+  color: #a78bfa;
+}

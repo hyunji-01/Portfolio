@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --bg: #030711;
+  --bg-card: rgba(11, 22, 42, 0.72);
+  --bg-card-hover: rgba(22, 38, 70, 0.76);
+  --blue: #79d7ff;
+  --blue-dim: rgba(121, 215, 255, 0.5);
+  --purple: #b08cff;
+  --green: #65f3c6;
+  --amber: #ffd166;
+  --text: #eef6ff;
+  --text-dim: #c8d8e8;
+  --text-muted: #8fa3b8;
+  --border: rgba(121, 215, 255, 0.18);
+  --border-hover: rgba(121, 215, 255, 0.45);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', 'Noto Sans KR', system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 20% 0%, rgba(121, 215, 255, 0.16), transparent 34vw),
+    radial-gradient(circle at 88% 12%, rgba(176, 140, 255, 0.13), transparent 28vw),
+    linear-gradient(180deg, #030711 0%, #06101d 52%, #030711 100%);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    linear-gradient(rgba(121, 215, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(121, 215, 255, 0.035) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), transparent 82%);
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Syne', 'Noto Sans KR', system-ui, sans-serif;
+  color: var(--text);
+  line-height: 1.2;
+}
+
+a {
+  color: var(--blue);
+  text-decoration: none;
+}
+
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: var(--blue-dim); }
+
+.section-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(32px, 5vw, 52px);
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: 0;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
