@@ -6,42 +6,66 @@
 
 .exp-header { margin-bottom: 60px; }
 
-.exp-list { display: flex; flex-direction: column; }
+.exp-list { display: flex; flex-direction: column; position: relative; }
+
+/* ── Continuous timeline rail running through the gap column ────── */
+.exp-list::before {
+  content: '';
+  position: absolute;
+  left: 224px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--line);
+}
+@media (max-width: 760px) { .exp-list::before { display: none; } }
 
 .exp-item {
   display: grid;
   grid-template-columns: 200px 1fr;
   gap: 48px;
   padding: 40px 0;
-  border-top: 1px solid var(--border);
+  border-top: 1px solid var(--line);
   opacity: 0;
   transform: translateY(18px);
-  transition: opacity 0.5s, transform 0.5s;
+  transition: opacity 0.5s, transform 0.5s, background 0.25s;
   position: relative;
 }
-.exp-item:last-child { border-bottom: 1px solid var(--border); }
+.exp-item:last-child { border-bottom: 1px solid var(--line); }
 .reveal.visible .exp-item { opacity: 1; transform: none; }
+.exp-item:hover { background: rgba(255, 255, 255, 0.025); }
 
-.exp-item.is-current {
-  padding-left: 20px;
-}
-.exp-item.is-current::before {
+/* timeline node on the rail, aligned with the company title */
+.exp-item::before {
   content: '';
   position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background: linear-gradient(to bottom, var(--blue), transparent);
-  border-radius: 2px;
+  left: 224px;
+  top: 45px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 2px solid var(--border);
+  transform: translateX(-50%);
+  z-index: 1;
+}
+.exp-item.is-current::before {
+  border-color: var(--cyan);
+  background: var(--cyan);
+  box-shadow: 0 0 0 4px rgba(30, 215, 96, 0.15), 0 0 14px rgba(30, 215, 96, 0.55);
+}
+@media (max-width: 760px) {
+  .exp-item::before { display: none; }
+  .exp-item.is-current { padding-left: 20px; border-left: 2px solid var(--cyan); }
 }
 
 .exp-period {
-  font-size: 12px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
   color: var(--text-muted);
-  letter-spacing: 0.03em;
+  letter-spacing: 0.05em;
   padding-top: 5px;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 .exp-title-row {
@@ -53,28 +77,32 @@
 }
 
 .exp-company {
-  font-family: 'Syne', sans-serif;
-  font-size: clamp(17px, 2.5vw, 21px);
+  font-family: 'Oxanium', sans-serif;
+  font-size: clamp(16px, 2.4vw, 20px);
   font-weight: 700;
-  color: #fff;
+  color: var(--text);
+  letter-spacing: 0.01em;
 }
 
+/* ── Badges — Spotify pill shape ────────────────────────── */
 .exp-badge {
+  font-family: 'JetBrains Mono', monospace;
   font-size: 10px;
   font-weight: 600;
-  padding: 3px 10px;
-  border-radius: 20px;
-  letter-spacing: 0.05em;
+  padding: 3px 12px;
+  border-radius: 9999px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 .exp-badge.current {
-  background: rgba(107, 157, 209, 0.12);
-  color: var(--blue);
-  border: 1px solid rgba(107, 157, 209, 0.25);
+  background: rgba(30, 215, 96, 0.10);
+  color: var(--cyan);
+  border: 1px solid rgba(30, 215, 96, 0.3);
 }
 .exp-badge.award {
-  background: rgba(249, 186, 21, 0.1);
-  color: #f9ba15;
-  border: 1px solid rgba(249, 186, 21, 0.25);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-dim);
+  border: 1px solid var(--border);
 }
 
 .exp-dept {
@@ -82,30 +110,29 @@
   color: var(--text-muted);
   margin-bottom: 16px;
   letter-spacing: 0.03em;
+  font-family: 'JetBrains Mono', monospace;
 }
 
 .exp-tasks {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 7px;
+  gap: 8px;
 }
 .exp-tasks li {
   font-size: 14px;
   color: var(--text-muted);
-  padding-left: 14px;
+  padding-left: 16px;
   position: relative;
-  line-height: 1.65;
+  line-height: 1.7;
 }
 .exp-tasks li::before {
   content: '';
   position: absolute;
-  left: 0;
-  top: 10px;
-  width: 5px;
-  height: 1px;
-  background: var(--blue);
-  opacity: 0.6;
+  left: 0; top: 11px;
+  width: 6px; height: 1px;
+  background: var(--cyan);
+  opacity: 0.45;
 }
 
 @media (max-width: 760px) {

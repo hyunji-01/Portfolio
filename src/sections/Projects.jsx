@@ -10,7 +10,7 @@ export default function Projects() {
     <section id="projects" className="projects">
       <div className={`projects-inner reveal ${visible ? 'visible' : ''}`} ref={ref}>
         <p className="section-label">Projects</p>
-        <h2 className="section-title">실제로 만든 궤적</h2>
+        <h2 className="section-title">프로젝트</h2>
         <div className="projects-list">
           {projects.map((p, i) => (
             <Link

@@ -4,7 +4,7 @@ export default function Artiwish() {
   return (
     <article className="pd artiwish">
       <div className="pd-hero">
-        <p className="pd-num">Project 04</p>
+        <p className="pd-num">Project 06</p>
         <h1 className="pd-title">ARTIWISH</h1>
         <p className="pd-subtitle">아티스트와 팬을 연결하는 전시 후원 플랫폼 기획</p>
         <div className="pd-tags">

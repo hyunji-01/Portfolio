@@ -9,7 +9,7 @@ export default function Education() {
     <section id="education" className="education">
       <div className={`education-inner reveal ${visible ? 'visible' : ''}`} ref={ref}>
         <p className="section-label">Education</p>
-        <h2 className="section-title">학습 이력</h2>
+        <h2 className="section-title">학력 및 교육</h2>
         <div className="edu-list">
           {education.map((edu, i) => (
             <div key={edu.school} className="edu-item" style={{ transitionDelay: `${i * 0.1}s` }}>

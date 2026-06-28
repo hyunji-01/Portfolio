@@ -18,12 +18,12 @@
   font-weight: 600;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--project-color, var(--blue));
+  color: var(--project-color, var(--cyan));
   margin-bottom: 16px;
 }
 
 .pd-title {
-  font-family: 'Syne', 'Noto Sans KR', sans-serif;
+  font-family: 'Oxanium', 'Noto Sans KR', sans-serif;
   font-size: clamp(44px, 8vw, 80px);
   font-weight: 800;
   color: #fff;
@@ -64,7 +64,7 @@
 .pd-achievements span {
   font-size: 13px;
   font-weight: 600;
-  color: var(--project-color, var(--blue));
+  color: var(--project-color, var(--cyan));
 }
 
 .pd-section {
@@ -72,7 +72,7 @@
 }
 
 .pd-section h2 {
-  font-family: 'Syne', 'Noto Sans KR', sans-serif;
+  font-family: 'Oxanium', 'Noto Sans KR', sans-serif;
   font-size: 22px;
   font-weight: 700;
   color: #fff;
@@ -104,14 +104,14 @@
 
 .pd-feature:hover {
   background: var(--bg-card-hover);
-  border-color: var(--project-color, var(--blue));
+  border-color: var(--project-color, var(--cyan));
 }
 
 .pd-feature h3 {
-  font-family: 'Syne', 'Noto Sans KR', sans-serif;
+  font-family: 'Oxanium', 'Noto Sans KR', sans-serif;
   font-size: 15px;
   font-weight: 700;
-  color: var(--project-color, var(--blue));
+  color: var(--project-color, var(--cyan));
   margin-bottom: 10px;
 }
 
@@ -143,11 +143,11 @@
   top: 11px;
   width: 6px;
   height: 1px;
-  background: var(--project-color, var(--blue));
+  background: var(--project-color, var(--cyan));
 }
 
 .pd-list.learned li strong {
-  color: var(--project-color, var(--blue));
+  color: var(--project-color, var(--cyan));
 }
 
 .pd-screenshots {

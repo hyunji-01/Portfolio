@@ -13,9 +13,11 @@ export default function Footer() {
           <a href={`mailto:${profile.email}`} className="footer-link">{profile.email}</a>
           <span className="footer-sep">/</span>
           <span className="footer-text">{profile.phone}</span>
+          <span className="footer-sep">/</span>
+          <a href="#top" className="footer-link footer-top">맨 위로 ↑</a>
         </div>
       </div>
-      <p className="footer-copy">© 2025 유현지. All rights reserved.</p>
+      <p className="footer-copy">© 2026 유현지. All rights reserved.</p>
     </footer>
   )
 }

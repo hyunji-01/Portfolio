@@ -4,37 +4,74 @@
   z-index: 1;
 }
 
-.education .section-label { margin-bottom: 12px; }
+.education .section-label { margin-bottom: 14px; }
 .education .section-title { margin-bottom: 56px; }
 
-.edu-list { display: flex; flex-direction: column; gap: 40px; }
+.edu-list { display: flex; flex-direction: column; gap: 0; position: relative; }
+
+.edu-list::before {
+  content: '';
+  position: absolute;
+  left: 264px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--line);
+}
+@media (max-width: 760px) { .edu-list::before { display: none; } }
 
 .edu-item {
   display: grid;
   grid-template-columns: 240px 1fr;
   gap: 48px;
+  padding: 40px 0;
+  border-top: 1px solid var(--line);
   opacity: 0;
   transform: translateY(16px);
-  transition: opacity 0.5s, transform 0.5s;
+  transition: opacity 0.5s, transform 0.5s, background 0.25s;
+  position: relative;
 }
+.edu-item:last-child { border-bottom: 1px solid var(--line); }
 .reveal.visible .edu-item { opacity: 1; transform: none; }
+.edu-item:hover { background: rgba(255, 255, 255, 0.02); }
+
+.edu-item::before {
+  content: '';
+  position: absolute;
+  left: 264px;
+  top: 45px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 2px solid var(--border);
+  transform: translateX(-50%);
+  z-index: 1;
+  transition: border-color 0.2s;
+}
+.edu-item:hover::before { border-color: var(--cyan); }
+@media (max-width: 760px) { .edu-item::before { display: none; } }
 
 .edu-school {
-  font-family: 'Syne', sans-serif;
-  font-size: 18px;
+  font-family: 'Oxanium', sans-serif;
+  font-size: 17px;
   font-weight: 700;
-  color: #fff;
-  margin-bottom: 6px;
+  color: var(--text);
+  margin-bottom: 8px;
+  letter-spacing: 0.01em;
 }
 
 .edu-period {
-  font-size: 12px;
-  color: var(--blue);
-  letter-spacing: 0.03em;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--cyan);
+  letter-spacing: 0.05em;
+  opacity: 0.8;
 }
 
 .edu-depts { display: flex; flex-direction: column; gap: 10px; }
 
+/* ── Dept card — Spotify elevated dark card ──────────────── */
 .edu-dept {
   display: flex;
   flex-direction: column;
@@ -42,21 +79,35 @@
   padding: 16px 20px;
   background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: 6px;
-  transition: border-color 0.2s;
+  border-radius: 8px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  position: relative;
+  overflow: hidden;
 }
-.edu-dept:hover { border-color: var(--border-hover); }
+.edu-dept::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 2px; height: 100%;
+  background: var(--cyan);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.edu-dept:hover { border-color: var(--border-hover); box-shadow: rgba(0,0,0,0.3) 0px 8px 8px; }
+.edu-dept:hover::before { opacity: 0.5; }
 
 .edu-dept-name {
+  font-family: 'Oxanium', sans-serif;
   font-size: 14px;
   font-weight: 600;
   color: var(--text-dim);
+  letter-spacing: 0.01em;
 }
 
 .edu-dept-desc {
   font-size: 13px;
   color: var(--text-muted);
-  line-height: 1.6;
+  line-height: 1.65;
 }
 
 @media (max-width: 760px) {

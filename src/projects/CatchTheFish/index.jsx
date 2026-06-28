@@ -4,7 +4,7 @@ export default function CatchTheFish() {
   return (
     <article className="pd catch-the-fish">
       <div className="pd-hero">
-        <p className="pd-num">Project 02</p>
+        <p className="pd-num">Project 04</p>
         <h1 className="pd-title">Catch The Fish</h1>
         <p className="pd-subtitle">직접 그린 픽셀 아트 기반 2D 낚시 게임</p>
         <div className="pd-tags">

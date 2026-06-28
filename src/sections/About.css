@@ -4,11 +4,47 @@
   z-index: 1;
 }
 
-.about-header { margin-bottom: 52px; }
+.about-header { margin-bottom: 40px; }
+
+/* ── Quick-facts strip — lets a stranger size you up in one glance ──── */
+.about-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(28px, 4vw, 56px);
+  padding-bottom: 40px;
+  margin-bottom: 40px;
+  border-bottom: 1px solid var(--line);
+}
+
+.about-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.5s var(--ease), transform 0.5s var(--ease);
+}
+.reveal.visible .about-stat { opacity: 1; transform: none; }
+
+.about-stat-value {
+  font-family: 'Oxanium', sans-serif;
+  font-size: clamp(28px, 3.4vw, 38px);
+  font-weight: 700;
+  color: var(--cyan);
+  line-height: 1;
+}
+
+.about-stat-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
 
 .about-body {
   display: grid;
-  grid-template-columns: 1fr 320px;
+  grid-template-columns: 1fr 300px;
   gap: 80px;
   align-items: start;
 }
@@ -24,32 +60,32 @@
   display: flex;
   align-items: flex-start;
   gap: 14px;
-  font-size: clamp(14px, 2vw, 16px);
+  font-size: clamp(14px, 1.9vw, 15.5px);
   color: var(--text-muted);
-  line-height: 1.75;
+  line-height: 1.8;
   opacity: 0;
-  transform: translateX(-16px);
+  transform: translateY(14px);
   transition: opacity 0.5s, transform 0.5s;
 }
-
 .reveal.visible .about-item { opacity: 1; transform: none; }
-.about-item.highlight { color: var(--text-dim); }
+.about-item.highlight { color: var(--text-dim); font-weight: 500; }
 .about-item.highlight .about-bullet {
-  background: var(--blue);
-  box-shadow: 0 0 8px rgba(107, 157, 209, 0.6);
+  background: var(--cyan);
+  box-shadow: 0 0 8px rgba(30, 215, 96, 0.5);
 }
 
 .about-bullet {
   flex-shrink: 0;
-  width: 5px;
-  height: 5px;
+  width: 4px;
+  height: 4px;
   border-radius: 50%;
-  background: var(--text-muted);
-  margin-top: 9px;
+  background: var(--border);
+  margin-top: 10px;
 }
 
+/* ── Contact card — Spotify elevated dark card ──────────── */
 .about-contact-card {
-  padding: 28px;
+  padding: 28px 24px;
   border: 1px solid var(--border);
   border-radius: 8px;
   background: var(--bg-card);
@@ -58,26 +94,53 @@
   gap: 10px;
   opacity: 0;
   transform: translateY(16px);
-  transition: opacity 0.6s 0.3s, transform 0.6s 0.3s;
+  transition: opacity 0.6s 0.3s, transform 0.6s 0.3s, box-shadow 0.25s, border-color 0.25s;
+  position: relative;
+  overflow: hidden;
+}
+.about-contact-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(to right, var(--cyan), transparent);
+  opacity: 0.7;
+}
+.about-contact-card:hover {
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 8px 24px;
+  border-color: var(--border-hover);
 }
 .reveal.visible .about-contact-card { opacity: 1; transform: none; }
 
 .about-contact-label {
+  font-family: 'JetBrains Mono', monospace;
   font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.25em;
+  font-weight: 400;
+  letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: var(--blue);
+  color: var(--cyan);
   margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.about-contact-label::before {
+  content: '';
+  width: 16px; height: 1px;
+  background: var(--cyan);
+  opacity: 0.5;
+  flex-shrink: 0;
 }
 
 .about-contact-line {
-  font-size: 13px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
   color: var(--text-muted);
   display: block;
+  letter-spacing: 0.02em;
   transition: color 0.2s;
 }
-a.about-contact-line:hover { color: var(--blue); }
+a.about-contact-line:hover { color: var(--cyan); }
 
 @media (max-width: 900px) {
   .about-body { grid-template-columns: 1fr; gap: 48px; }

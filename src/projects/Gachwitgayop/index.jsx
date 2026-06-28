@@ -4,7 +4,7 @@ export default function Gachwitgayop() {
   return (
     <article className="pd gachwitgayop">
       <div className="pd-hero">
-        <p className="pd-num">Project 06</p>
+        <p className="pd-num">Project 08</p>
         <h1 className="pd-title">가취가욥</h1>
         <p className="pd-subtitle">여행 계획을 빠르게 정리하는 앱 UI/UX 기획</p>
         <div className="pd-tags">

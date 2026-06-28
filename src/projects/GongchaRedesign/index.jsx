@@ -4,7 +4,7 @@ export default function GongchaRedesign() {
   return (
     <article className="pd gongcha">
       <div className="pd-hero">
-        <p className="pd-num">Project 05</p>
+        <p className="pd-num">Project 07</p>
         <h1 className="pd-title">공차 리디자인</h1>
         <p className="pd-subtitle">더블 다이아몬드 프로세스를 적용한 UI/UX 리디자인</p>
         <div className="pd-tags">

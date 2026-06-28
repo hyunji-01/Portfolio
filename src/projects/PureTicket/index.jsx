@@ -4,7 +4,7 @@ export default function PureTicket() {
   return (
     <article className="pd pure-ticket">
       <div className="pd-hero">
-        <p className="pd-num">Project 01</p>
+        <p className="pd-num">Project 03</p>
         <h1 className="pd-title">Pure Ticket</h1>
         <p className="pd-subtitle">공정한 티켓 예매 환경을 목표로 한 웹 서비스</p>
         <div className="pd-tags">

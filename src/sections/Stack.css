@@ -4,10 +4,15 @@
   z-index: 1;
 }
 
-.stack .section-label { margin-bottom: 12px; }
+.stack .section-label { margin-bottom: 14px; }
 .stack .section-title { margin-bottom: 56px; }
 
-.stack-groups { display: flex; flex-direction: column; gap: 30px; max-width: 860px; }
+.stack-groups {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 40px 60px;
+  max-width: 960px;
+}
 
 .stack-group {
   opacity: 0;
@@ -16,42 +21,54 @@
 }
 .reveal.visible .stack-group { opacity: 1; transform: none; }
 
+/* ── Category label — achromatic Spotify style ───────────── */
 .stack-cat {
+  font-family: 'JetBrains Mono', monospace;
   font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.22em;
+  font-weight: 400;
+  letter-spacing: 0.24em;
   text-transform: uppercase;
   color: var(--text-muted);
-  margin-bottom: 12px;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.stack-cat::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--cyan);
+  opacity: 0.7;
+  flex-shrink: 0;
+}
+.stack-cat::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+  opacity: 0.4;
 }
 
 .stack-tags { display: flex; flex-wrap: wrap; gap: 8px; }
 
+/* ── Tags — Spotify full pill ────────────────────────────── */
 .stack-tag {
-  font-size: 13px;
-  padding: 6px 16px;
-  border-radius: 4px;
+  font-size: 12.5px;
+  padding: 5px 16px;
+  border-radius: 9999px;
   background: var(--bg-card);
   border: 1px solid var(--border);
   color: var(--text-muted);
   letter-spacing: 0.02em;
   cursor: default;
-  transition: border-color 0.2s, color 0.2s, background 0.2s;
+  transition: border-color 0.2s, color 0.2s, background 0.2s, transform 0.2s var(--ease), box-shadow 0.2s;
 }
 .stack-tag:hover {
-  border-color: var(--blue);
-  color: var(--blue);
-  background: rgba(107, 157, 209, 0.05);
+  border-color: var(--cyan);
+  color: var(--text);
+  background: rgba(30, 215, 96, 0.08);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
 }
-
-.stack-group:nth-child(1) .stack-tag:hover { border-color: #6B9DD1; color: #6B9DD1; }
-.stack-group:nth-child(2) .stack-tag:hover { border-color: #8b6cf5; color: #8b6cf5; }
-.stack-group:nth-child(3) .stack-tag:hover { border-color: #10b981; color: #10b981; }
-.stack-group:nth-child(4) .stack-tag:hover { border-color: #ec4899; color: #ec4899; }
-.stack-group:nth-child(5) .stack-tag:hover { border-color: #f59e0b; color: #f59e0b; }
-
-.stack-group:nth-child(1) .stack-cat { color: #6B9DD1; }
-.stack-group:nth-child(2) .stack-cat { color: #8b6cf5; }
-.stack-group:nth-child(3) .stack-cat { color: #10b981; }
-.stack-group:nth-child(4) .stack-cat { color: #ec4899; }
-.stack-group:nth-child(5) .stack-cat { color: #f59e0b; }

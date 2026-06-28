@@ -4,7 +4,7 @@ export default function Jikpick() {
   return (
     <article className="pd jikpick">
       <div className="pd-hero">
-        <p className="pd-num">Project 03</p>
+        <p className="pd-num">Project 05</p>
         <h1 className="pd-title">JIKPICK</h1>
         <p className="pd-subtitle">직접 픽업을 중심으로 설계한 중고거래 플랫폼</p>
         <div className="pd-tags">
